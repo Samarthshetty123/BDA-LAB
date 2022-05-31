@@ -1,0 +1,226 @@
+bmsce@bmsce-Precision-T1700:~$ sudo su hduser
+[sudo] password for bmsce: 
+hduser@bmsce-Precision-T1700:/home/bmsce$ start-all.sh
+This script is Deprecated. Instead use start-dfs.sh and start-yarn.sh
+Starting namenodes on [localhost]
+hduser@localhost's password: 
+localhost: starting namenode, logging to /usr/local/hadoop/logs/hadoop-hduser-namenode-bmsce-Precision-T1700.out
+hduser@localhost's password: 
+localhost: starting datanode, logging to /usr/local/hadoop/logs/hadoop-hduser-datanode-bmsce-Precision-T1700.out
+Starting secondary namenodes [0.0.0.0]
+hduser@0.0.0.0's password: 
+0.0.0.0: starting secondarynamenode, logging to /usr/local/hadoop/logs/hadoop-hduser-secondarynamenode-bmsce-Precision-T1700.out
+starting yarn daemons
+starting resourcemanager, logging to /usr/local/hadoop/logs/yarn-hduser-resourcemanager-bmsce-Precision-T1700.out
+hduser@localhost's password: 
+localhost: starting nodemanager, logging to /usr/local/hadoop/logs/yarn-hduser-nodemanager-bmsce-Precision-T1700.out
+hduser@bmsce-Precision-T1700:/home/bmsce$ jps
+8502 Jps
+8379 NodeManager
+7675 DataNode
+7501 NameNode
+8045 ResourceManager
+7886 SecondaryNameNode
+hduser@bmsce-Precision-T1700:/home/bmsce$ hdfs dfs -ls /
+Found 3 itemsbmsce@bmsce-Precision-T1700:~$ sudo su hduser
+[sudo] password for bmsce: 
+hduser@bmsce-Precision-T1700:/home/bmsce$ start-all.sh
+This script is Deprecated. Instead use start-dfs.sh and start-yarn.sh
+Starting namenodes on [localhost]
+hduser@localhost's password: 
+localhost: starting namenode, logging to /usr/local/hadoop/logs/hadoop-hduser-namenode-bmsce-Precision-T1700.out
+hduser@localhost's password: 
+localhost: starting datanode, logging to /usr/local/hadoop/logs/hadoop-hduser-datanode-bmsce-Precision-T1700.out
+Starting secondary namenodes [0.0.0.0]
+hduser@0.0.0.0's password: 
+0.0.0.0: starting secondarynamenode, logging to /usr/local/hadoop/logs/hadoop-hduser-secondarynamenode-bmsce-Precision-T1700.out
+starting yarn daemons
+starting resourcemanager, logging to /usr/local/hadoop/logs/yarn-hduser-resourcemanager-bmsce-Precision-T1700.out
+hduser@localhost's password: 
+localhost: starting nodemanager, logging to /usr/local/hadoop/logs/yarn-hduser-nodemanager-bmsce-Precision-T1700.out
+hduser@bmsce-Precision-T1700:/home/bmsce$ jps
+8502 Jps
+8379 NodeManager
+7675 DataNode
+7501 NameNode
+8045 ResourceManager
+7886 SecondaryNameNode
+hduser@bmsce-Precision-T1700:/home/bmsce$ hdfs dfs -ls /
+Found 3 items
+drwxr-xr-x   - hduser supergroup          0 2019-10-24 11:12 /shik
+drwxrwxr-x   - hduser supergroup          0 2019-08-01 16:19 /tmp
+drwxr-xr-x   - hduser supergroup          0 2019-08-01 16:03 /user
+hduser@bmsce-Precision-T1700:/home/bmsce$ hdfs dfs -ls / sam
+Found 3 items
+drwxr-xr-x   - hduser supergroup          0 2019-10-24 11:12 /shik
+drwxrwxr-x   - hduser supergroup          0 2019-08-01 16:19 /tmp
+drwxr-xr-x   - hduser supergroup          0 2019-08-01 16:03 /user
+ls: `sam': No such file or directory
+hduser@bmsce-Precision-T1700:/home/bmsce$ hdfs dfs -mkdir / sam
+mkdir: `/': File exists
+mkdir: `sam': No such file or directory
+hduser@bmsce-Precision-T1700:/home/bmsce$ hdfs dfs -mkdir /sam
+hduser@bmsce-Precision-T1700:/home/bmsce$ hdfs dfs -ls /
+Found 4 items
+drwxr-xr-x   - hduser supergroup          0 2022-05-31 09:46 /sam
+drwxr-xr-x   - hduser supergroup          0 2019-10-24 11:12 /shik
+drwxrwxr-x   - hduser supergroup          0 2019-08-01 16:19 /tmp
+drwxr-xr-x   - hduser supergroup          0 2019-08-01 16:03 /user
+hduser@bmsce-Precision-T1700:/home/bmsce$ hadoop fs -ls /
+Found 4 items
+drwxr-xr-x   - hduser supergroup          0 2022-05-31 09:46 /sam
+drwxr-xr-x   - hduser supergroup          0 2019-10-24 11:12 /shik
+drwxrwxr-x   - hduser supergroup          0 2019-08-01 16:19 /tmp
+drwxr-xr-x   - hduser supergroup          0 2019-08-01 16:03 /user
+hduser@bmsce-Precision-T1700:/home/bmsce$ hdfs dfs -put /Desktop/demo.txt
+put: `.': No such file or directory
+hduser@bmsce-Precision-T1700:/home/bmsce$ hdfs dfs -put /Desktop/demo.txtcd\
+> 
+put: `.': No such file or directory
+hduser@bmsce-Precision-T1700:/home/bmsce$ 
+hduser@bmsce-Precision-T1700:/home/bmsce$ cd\
+> 
+hduser@bmsce-Precision-T1700:~$ hdfs dfs -put /Desktop/demo.txt
+put: `.': No such file or directory
+hduser@bmsce-Precision-T1700:~$ 
+hduser@bmsce-Precision-T1700:~$ hdfs dfs -put /Desktop/demo.txt /sam
+put: `/Desktop/demo.txt': No such file or directory
+hduser@bmsce-Precision-T1700:~$ sudo nano demo.txt
+[sudo] password for hduser: 
+Sorry, try again.
+[sudo] password for hduser: 
+hduser@bmsce-Precision-T1700:~$ hdfs dfs -put /home/bmsce/demo.txt /sam
+put: `/home/bmsce/demo.txt': No such file or directory
+hduser@bmsce-Precision-T1700:~$ hdfs dfs -put /home/hduser/demo.txt /sam
+hduser@bmsce-Precision-T1700:~$ hdfs dfs -ls /sam
+Found 1 items
+-rw-r--r--   1 hduser supergroup         33 2022-05-31 10:00 /sam/demo.txt
+hduser@bmsce-Precision-T1700:~$ hdfs dfs -cat /sam/demo.txt
+safasdf sadfasdf sadfasdfs sdfsd
+hduser@bmsce-Precision-T1700:~$ hdfs dfs -copyFromLocal /home/hduser/demo.txt /sam/copy.txt
+hduser@bmsce-Precision-T1700:~$ hdfs dfs -cat /sam/copy.txt
+safasdf sadfasdf sadfasdfs sdfsd
+hduser@bmsce-Precision-T1700:~$ hdfs dfs -get /sam/demo.txt /home/hduser/copy.txt
+hduser@bmsce-Precision-T1700:~$ cat /home/hduser/copy.txt
+safasdf sadfasdf sadfasdfs sdfsd
+hduser@bmsce-Precision-T1700:~$ ls  /home/hduser/
+ copy.txt              hive                                           Public
+ demo.java             metastore_db                                   R
+ demo.txt              Music                                          sidbi
+ derby.log             output.csv                                     sidbi1
+ Desktop              'Packet Tracer 7.2.1 for Linux 64 bit.tar.gz'   Templates
+ Documents             Pictures                                       toinstalledlist
+ Downloads             pig_1564816082257.log                          Videos
+ examples.desktop      pt                                             zero
+ hadoop-2.6.0.tar.gz   PT72Installer
+hduser@bmsce-Precision-T1700:~$ hdfs dfs -copyToLocal /sam/demo.txt /home/hduser/copy.txt
+copyToLocal: `/home/hduser/copy.txt': File exists
+hduser@bmsce-Precision-T1700:~$ hadoop fs -mv /sam /samarth
+hduser@bmsce-Precision-T1700:~$ hadoop f -ls /samarth
+Error: Could not find or load main class f
+hduser@bmsce-Precision-T1700:~$ hadoop fs -ls /samarth
+Found 2 items
+-rw-r--r--   1 hduser supergroup         33 2022-05-31 10:13 /samarth/copy.txt
+-rw-r--r--   1 hduser supergroup         33 2022-05-31 10:00 /samarth/demo.txt
+hduser@bmsce-Precision-T1700:~$ hadoop fs -cp /samarth/ /sam
+hduser@bmsce-Precision-T1700:~$ hadoop fs -ls /sam
+Found 2 items
+-rw-r--r--   1 hduser supergroup         33 2022-05-31 10:28 /sam/copy.txt
+-rw-r--r--   1 hduser supergroup         33 2022-05-31 10:28 /sam/demo.txt
+hduser@bmsce-Precision-T1700:~$ 
+
+
+drwxr-xr-x   - hduser supergroup          0 2019-10-24 11:12 /shik
+drwxrwxr-x   - hduser supergroup          0 2019-08-01 16:19 /tmp
+drwxr-xr-x   - hduser supergroup          0 2019-08-01 16:03 /user
+hduser@bmsce-Precision-T1700:/home/bmsce$ hdfs dfs -ls / sam
+Found 3 items
+drwxr-xr-x   - hduser supergroup          0 2019-10-24 11:12 /shik
+drwxrwxr-x   - hduser supergroup          0 2019-08-01 16:19 /tmp
+drwxr-xr-x   - hduser supergroup          0 2019-08-01 16:03 /user
+ls: `sam': No such file or directory
+hduser@bmsce-Precision-T1700:/home/bmsce$ hdfs dfs -mkdir / sam
+mkdir: `/': File exists
+mkdir: `sam': No such file or directory
+hduser@bmsce-Precision-T1700:/home/bmsce$ hdfs dfs -mkdir /sam
+hduser@bmsce-Precision-T1700:/home/bmsce$ hdfs dfs -ls /
+Found 4 items
+drwxr-xr-x   - hduser supergroup          0 2022-05-31 09:46 /sam
+drwxr-xr-x   - hduser supergroup          0 2019-10-24 11:12 /shik
+drwxrwxr-x   - hduser supergroup          0 2019-08-01 16:19 /tmp
+drwxr-xr-x   - hduser supergroup          0 2019-08-01 16:03 /user
+hduser@bmsce-Precision-T1700:/home/bmsce$ hadoop fs -ls /
+Found 4 items
+drwxr-xr-x   - hduser supergroup          0 2022-05-31 09:46 /sam
+drwxr-xr-x   - hduser supergroup          0 2019-10-24 11:12 /shik
+drwxrwxr-x   - hduser supergroup          0 2019-08-01 16:19 /tmp
+drwxr-xr-x   - hduser supergroup          0 2019-08-01 16:03 /user
+hduser@bmsce-Precision-T1700:/home/bmsce$ hdfs dfs -put /Desktop/demo.txt
+put: `.': No such file or directory
+hduser@bmsce-Precision-T1700:/home/bmsce$ hdfs dfs -put /Desktop/demo.txtcd\
+> 
+put: `.': No such file or directory
+hduser@bmsce-Precision-T1700:/home/bmsce$ 
+hduser@bmsce-Precision-T1700:/home/bmsce$ cd\
+> 
+hduser@bmsce-Precision-T1700:~$ hdfs dfs -put /Desktop/demo.txt
+put: `.': No such file or directory
+hduser@bmsce-Precision-T1700:~$ 
+hduser@bmsce-Precision-T1700:~$ hdfs dfs -put /Desktop/demo.txt /sam
+put: `/Desktop/demo.txt': No such file or directory
+hduser@bmsce-Precision-T1700:~$ sudo nano demo.txt
+[sudo] password for hduser: 
+Sorry, try again.
+[sudo] password for hduser: 
+hduser@bmsce-Precision-T1700:~$ hdfs dfs -put /home/bmsce/demo.txt /sam
+put: `/home/bmsce/demo.txt': No such file or directory
+hduser@bmsce-Precision-T1700:~$ hdfs dfs -put /home/hduser/demo.txt /sam
+hduser@bmsce-Precision-T1700:~$ hdfs dfs -ls /sam
+Found 1 items
+-rw-r--r--   1 hduser supergroup         33 2022-05-31 10:00 /sam/demo.txt
+
+Try: sudo apt install <deb name>
+
+hduser@bmsce-Precision-T1700:~$ hdfs dfs -cat /sam/demo.txt
+safasdf sadfasdf sadfasdfs sdfsd
+hduser@bmsce-Precision-T1700:~$ ^C
+hduser@bmsce-Precision-T1700:~$ hdfs dfs -copyFromLocal /home/hduser/demo.txt/sam/copy.txt
+copyFromLocal: `.': No such file or directory
+hduser@bmsce-Precision-T1700:~$ hdfs dfs -copyFromLocal /home/hduser/demo.txt/ sam/copy.txt
+copyFromLocal: `sam/copy.txt': No such file or directory
+hduser@bmsce-Precision-T1700:~$ hdfs dfs -copyFromLocal /home/hduser/demo.txt / sam/copy.txt
+copyFromLocal: `sam/copy.txt': No such file or directory
+hduser@bmsce-Precision-T1700:~$ hdfs dfs -copyFromLocal /home/hduser/demo.txt /sam/copy.txt
+hduser@bmsce-Precision-T1700:~$ hdfs dfs -cat /sam/copy.txt
+safasdf sadfasdf sadfasdfs sdfsd
+hduser@bmsce-Precision-T1700:~$ hdfs dfs -get /sam/demo.txt /home/hduser/copy.txt
+hduser@bmsce-Precision-T1700:~$ cat /home/hduser/copy.txt
+safasdf sadfasdf sadfasdfs sdfsd
+hduser@bmsce-Precision-T1700:~$ ls  /home/hduser/
+ copy.txt              hive                                           Public
+ demo.java             metastore_db                                   R
+ demo.txt              Music                                          sidbi
+ derby.log             output.csv                                     sidbi1
+ Desktop              'Packet Tracer 7.2.1 for Linux 64 bit.tar.gz'   Templates
+ Documents             Pictures                                       toinstalledlist
+ Downloads             pig_1564816082257.log                          Videos
+ examples.desktop      pt                                             zero
+ hadoop-2.6.0.tar.gz   PT72Installer
+hduser@bmsce-Precision-T1700:~$ hdfs dfs -copyToLocal /sam/demo.txt /home/hduser/copy.txt
+copyToLocal: `/home/hduser/copy.txt': File exists
+hduser@bmsce-Precision-T1700:~$ hadoop fs -mv /sam /samarth
+hduser@bmsce-Precision-T1700:~$ hadoop f -ls /samarth
+Error: Could not find or load main class f
+hduser@bmsce-Precision-T1700:~$ hadoop fs -ls /samarth
+Found 2 items
+-rw-r--r--   1 hduser supergroup         33 2022-05-31 10:13 /samarth/copy.txt
+-rw-r--r--   1 hduser supergroup         33 2022-05-31 10:00 /samarth/demo.txt
+hduser@bmsce-Precision-T1700:~$ hadoop fs -ls /sam
+ls: `/sam': No such file or directory
+hduser@bmsce-Precision-T1700:~$ hadoop fs -cp /samarth/ /sam
+hduser@bmsce-Precision-T1700:~$ hadoop fs -ls /sam
+Found 2 items
+-rw-r--r--   1 hduser supergroup         33 2022-05-31 10:28 /sam/copy.txt
+-rw-r--r--   1 hduser supergroup         33 2022-05-31 10:28 /sam/demo.txt
+hduser@bmsce-Precision-T1700:~$ 
+
